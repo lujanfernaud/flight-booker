@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: Tenerife South Airport (Reina Sofia)
+  location: Tenerife
+  iata_code: TFS
+
+two:
+  id: 2
+  name: Kansai International Airport
+  location: Osaka
+  iata_code: KIX
+
+three:
+  id: 3
+  name: Paro Airport
+  location: Paro
+  iata_code: PBH
+
+four:
+  id: 4
+  name: Honolulu International Airport
+  location: Honolulu
+  iata_code: HNL
