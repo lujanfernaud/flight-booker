@@ -10,13 +10,11 @@
 # Airports.
 #
 
+puts "Creating airports..."
+
 Airport.create!(name: "Tenerife South Airport (Reina Sofia)",
                 location: "Tenerife",
                 iata_code: "TFS")
-
-Airport.create!(name: "Tenerife North Airport (Los Rodeos)",
-                location: "Tenerife",
-                iata_code: "TFN")
 
 Airport.create!(name: "Zurich Airport",
                 location: "Zurich",
@@ -38,48 +36,96 @@ Airport.create!(name: "Honolulu International Airport",
 # Flights.
 #
 
+puts "Creating flights..."
+
 tenerife_south = Airport.first
-tenerife_north = Airport.second
 
-# Departures.
+def in_a_month
+  1.month.from_now
+end
 
-tenerife_south.departures.build(arrival_airport_id: 3,
-                               departure_date: Time.zone.now + 1.week,
-                               duration: 260)
+def random_hours(number)
+  ((number + 1) * rand(2..4)).hours
+end
 
-tenerife_south.departures.build(arrival_airport_id: 4,
-                               departure_date: Time.zone.now + 1.week,
-                               duration: 960)
+# Tenerife - Zurich
 
-tenerife_south.departures.build(arrival_airport_id: 5,
-                               departure_date: Time.zone.now + 1.week,
-                               duration: 784)
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 2,
+    departure_date: in_a_month + random_hours(n),
+    duration: 260
+  )
+end
 
-tenerife_south.departures.build(arrival_airport_id: 6,
-                               departure_date: Time.zone.now + 1.week,
-                               duration: 1010)
+# Tenerife - Osaka
 
-# Arrivals.
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 3,
+    departure_date: in_a_month + 1.week + random_hours(n),
+    duration: 960
+  )
+end
 
-tenerife_south.arrivals.build(departure_airport_id: 3,
-                              departure_date: Time.zone.now + 1.week,
-                              duration: 260)
+# Tenerife - Paro
 
-tenerife_south.arrivals.build(departure_airport_id: 4,
-                              departure_date: Time.zone.now + 1.week,
-                              duration: 960)
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 4,
+    departure_date: in_a_month + 2.weeks + random_hours(n),
+    duration: 784
+  )
+end
 
-tenerife_south.arrivals.build(departure_airport_id: 5,
-                              departure_date: Time.zone.now + 1.week,
-                              duration: 784)
+# Tenerife - Honolulu
 
-tenerife_south.arrivals.build(departure_airport_id: 6,
-                              departure_date: Time.zone.now + 1.week,
-                              duration: 1010)
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 5,
+    departure_date: in_a_month + 3.weeks + random_hours(n),
+    duration: 1010
+  )
+end
 
-tenerife_north.arrivals.build(departure_airport_id: 3,
-                              departure_date: Time.zone.now + 1.week,
-                              duration: 260)
+# Zurich - Tenerife
+
+4.times do |n|
+  tenerife_south.arrivals.build(
+    departure_airport_id: 2,
+    departure_date: in_a_month + 4.weeks + random_hours(n),
+    duration: 260
+  )
+end
+
+# Osaka - Tenerife
+
+4.times do |n|
+  tenerife_south.arrivals.build(
+    departure_airport_id: 3,
+    departure_date: in_a_month + 5.weeks + random_hours(n),
+    duration: 960
+  )
+end
+
+# Paro - Tenerife
+
+4.times do |n|
+  tenerife_south.arrivals.build(
+    departure_airport_id: 4,
+    departure_date: in_a_month + 6.weeks + random_hours(n),
+    duration: 784
+  )
+end
+
+# Honolulu - Tenerife
+
+4.times do |n|
+  tenerife_south.arrivals.build(
+    departure_airport_id: 5,
+    departure_date: in_a_month + 7.weeks + random_hours(n),
+    duration: 1010
+  )
+end
 
 tenerife_south.save!
-tenerife_north.save!
