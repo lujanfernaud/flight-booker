@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 #
 # Airports.
 #
@@ -45,7 +37,7 @@ def in_a_month
 end
 
 def random_hours(number)
-  ((number + 1) * rand(2..4)).hours
+  Time.parse("#{rand(0..18) + number}:#{rand(0..60)}")
 end
 
 # Tenerife - Zurich
@@ -53,7 +45,8 @@ end
 4.times do |n|
   tenerife_south.departures.build(
     arrival_airport_id: 2,
-    departure_date: in_a_month + random_hours(n),
+    departure_date: in_a_month,
+    departure_time: random_hours(n),
     duration: 260
   )
 end
@@ -63,7 +56,8 @@ end
 4.times do |n|
   tenerife_south.departures.build(
     arrival_airport_id: 3,
-    departure_date: in_a_month + 1.week + random_hours(n),
+    departure_date: in_a_month + 1.week,
+    departure_time: random_hours(n),
     duration: 960
   )
 end
@@ -73,7 +67,8 @@ end
 4.times do |n|
   tenerife_south.departures.build(
     arrival_airport_id: 4,
-    departure_date: in_a_month + 2.weeks + random_hours(n),
+    departure_date: in_a_month + 2.weeks,
+    departure_time: random_hours(n),
     duration: 784
   )
 end
@@ -83,7 +78,8 @@ end
 4.times do |n|
   tenerife_south.departures.build(
     arrival_airport_id: 5,
-    departure_date: in_a_month + 3.weeks + random_hours(n),
+    departure_date: in_a_month + 3.weeks,
+    departure_time: random_hours(n),
     duration: 1010
   )
 end
@@ -93,7 +89,8 @@ end
 4.times do |n|
   tenerife_south.arrivals.build(
     departure_airport_id: 2,
-    departure_date: in_a_month + 4.weeks + random_hours(n),
+    departure_date: in_a_month + 4.weeks,
+    departure_time: random_hours(n),
     duration: 260
   )
 end
@@ -103,7 +100,8 @@ end
 4.times do |n|
   tenerife_south.arrivals.build(
     departure_airport_id: 3,
-    departure_date: in_a_month + 5.weeks + random_hours(n),
+    departure_date: in_a_month + 5.weeks,
+    departure_time: random_hours(n),
     duration: 960
   )
 end
@@ -113,7 +111,8 @@ end
 4.times do |n|
   tenerife_south.arrivals.build(
     departure_airport_id: 4,
-    departure_date: in_a_month + 6.weeks + random_hours(n),
+    departure_date: in_a_month + 6.weeks,
+    departure_time: random_hours(n),
     duration: 784
   )
 end
@@ -123,7 +122,8 @@ end
 4.times do |n|
   tenerife_south.arrivals.build(
     departure_airport_id: 5,
-    departure_date: in_a_month + 7.weeks + random_hours(n),
+    departure_date: in_a_month + 7.weeks,
+    departure_time: random_hours(n),
     duration: 1010
   )
 end

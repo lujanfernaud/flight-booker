@@ -31,4 +31,12 @@ class AirportTest < ActiveSupport::TestCase
   test "#arrivals" do
     assert_equal 2, @airport.arrivals.size
   end
+
+  test "#location_with_code" do
+    assert_equal "Tenerife (TFS)", @airport.location_with_code
+  end
+
+  test ".locations" do
+    assert_equal 4, Airport.locations.size
+  end
 end

@@ -1,0 +1,66 @@
+<%= form_tag "/flights", method: "get" do %>
+  <div class="form-group">
+    <%= label_tag :departure_airport, "From" %>
+    <%= select_tag :departure_airport, options_for_select(Airport.locations),
+      include_blank: "Please select...", required: true,
+      class: "form-control custom-select" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :arrival_airport, "To" %>
+    <%= select_tag :arrival_airport, options_for_select(Airport.locations),
+      include_blank: "Please select...", required: true,
+      class: "form-control custom-select" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :departure_date, "Departure date" %>
+    <%= select_tag :departure_date, options_for_select(Flight.departure_dates),
+      class: "form-control custom-select" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :passengers, "Passengers" %>
+    <%= select_tag :passengers, options_for_select([1, 2, 3, 4]),
+      class: "form-control custom-select" %>
+  </div>
+
+  <div class="form-group mt-4">
+    <%= submit_tag "Search", class: "btn btn-primary btn-lg btn-block" %>
+  </div>
+<% end %>
+
+<% if @flights && !@flights.empty? %>
+  <%= form_tag "/flights", method: :get do %>
+    <table class="table table-stripped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Flight No</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @flights.each do |flight| %>
+          <tr>
+            <td><%= radio_button_tag :flight_id, flight.id %></td>
+            <td><%= flight.id %></td>
+            <td><%= @departure_airport.location_with_code %></td>
+            <td><%= @arrival_airport.location_with_code %></td>
+            <td><%= flight.departure_date.strftime("%d %B %Y") %></td>
+            <td><%= flight.departure_time.strftime("%H:%M") %></td>
+            <td><%= flight.duration %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div class="form-group mt-4">
+      <%= submit_tag "Continue", class: "btn btn-primary btn-lg btn-block" %>
+    </div>
+  <% end %>
+<% end %>

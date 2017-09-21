@@ -3,29 +3,34 @@
 one:
   departure_airport_id: 1
   arrival_airport_id: 2
-  departure_date: 2017-09-19 21:12:18
+  departure_date: <%= Time.zone.now %>
+  departure_time: <%= Time.parse("#{rand(0..18)}:#{rand(0..60)}") %>
   duration: 1
 
 two:
   departure_airport_id: 1
   arrival_airport_id: 3
-  departure_date: 2017-09-19 21:12:18
+  departure_date: <%= Time.zone.now + 1.day %>
+  departure_time: <%= Time.parse("#{rand(0..18)}:#{rand(0..60)}") %>
   duration: 1
 
 three:
   departure_airport_id: 1
   arrival_airport_id: 4
-  departure_date: 2017-09-19 21:12:18
+  departure_date: <%= Time.zone.now + 2.days %>
+  departure_time: <%= Time.parse("#{rand(0..18)}:#{rand(0..60)}") %>
   duration: 1
 
 four:
   departure_airport_id: 2
   arrival_airport_id: 1
-  departure_date: 2017-09-19 21:12:18
+  departure_date: <%= Time.zone.now + 3.days %>
+  departure_time: <%= Time.parse("#{rand(0..18)}:#{rand(0..60)}") %>
   duration: 1
 
 five:
   departure_airport_id: 3
   arrival_airport_id: 1
-  departure_date: 2017-09-19 21:12:18
+  departure_date: <%= Time.zone.now + 4.days %>
+  departure_time: <%= Time.parse("#{rand(0..18)}:#{rand(0..60)}") %>
   duration: 1

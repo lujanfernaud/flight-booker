@@ -37,4 +37,8 @@ class FlightTest < ActiveSupport::TestCase
   test "#arrival_airport is TFS" do
     assert_equal @tfs, @from_kix.arrival_airport
   end
+
+  test ".departure_dates" do
+    assert_equal 5, Flight.departure_dates.count
+  end
 end
