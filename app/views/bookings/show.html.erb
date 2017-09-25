@@ -1,0 +1,45 @@
+<table class="table table-stripped">
+  <thead>
+    <tr>
+      <th>Flight No</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @flight.id %></td>
+      <td><%= @departure_airport.location_with_code %></td>
+      <td><%= @arrival_airport.location_with_code %></td>
+      <td><%= @flight.departure_date.strftime("%d %B %Y") %></td>
+      <td><%= @flight.departure_time.strftime("%H:%M") %></td>
+      <td><%= @flight.duration %></td>
+    </tr>
+  </tbody>
+</table>
+
+<% @passengers.each do |passenger| %>
+  <table class="table table-stripped">
+    <thead>
+      <tr>
+        <th>Passenger Name</th>
+        <th>Flight No</th>
+        <th>Gate</th>
+        <th>Seat</th>
+        <th>Boading Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= passenger.name %></td>
+        <td><%= @flight.id %></td>
+        <td>11A</td>
+        <td>21A</td>
+        <td>18:00</td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

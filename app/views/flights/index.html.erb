@@ -31,7 +31,12 @@
 <% end %>
 
 <% if @flights && !@flights.empty? %>
-  <%= form_tag "/flights", method: :get do %>
+  <%= form_tag new_booking_path, method: :get do %>
+
+    <%= hidden_field_tag :departure_airport_id, @departure_airport.id %>
+    <%= hidden_field_tag :arrival_airport_id, @arrival_airport.id %>
+    <%= hidden_field_tag :passengers, params[:passengers] %>
+
     <table class="table table-stripped">
       <thead>
         <tr>

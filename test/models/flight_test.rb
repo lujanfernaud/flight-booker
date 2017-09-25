@@ -22,6 +22,10 @@ class FlightTest < ActiveSupport::TestCase
     assert_not @from_tfs.valid?, "Expected duration not to be nil."
   end
 
+  test "#passengers" do
+    assert_equal 1, @from_tfs.passengers.size
+  end
+
   test "#departure_airport is TFS" do
     assert_equal @tfs, @from_tfs.departure_airport
   end

@@ -1,0 +1,46 @@
+<table class="table table-stripped">
+  <thead>
+    <tr>
+      <th>Flight No</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @flight.id %></td>
+      <td><%= @departure_airport.location_with_code %></td>
+      <td><%= @arrival_airport.location_with_code %></td>
+      <td><%= @flight.departure_date.strftime("%d %B %Y") %></td>
+      <td><%= @flight.departure_time.strftime("%H:%M") %></td>
+      <td><%= @flight.duration %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= form_for @booking do |f| %>
+  <%= f.hidden_field :flight_id, value: @flight.id %>
+
+  <%= f.fields_for :passengers do |p| %>
+    <div class="form-group">
+      <h2 class="h4">Passenger <%= p.index + 1 %></h2>
+      <div class="form-group">
+        <%= p.label :name %>
+        <%= p.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= p.label :email %>
+        <%= p.email_field :email, class: "form-control" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.submit "Submit Passenger",
+      class: "btn btn-primary btn-block btn-lg" %>
+  </div>
+<% end %>
