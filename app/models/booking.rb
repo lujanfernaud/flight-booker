@@ -6,8 +6,7 @@ class Booking < ApplicationRecord
 
   accepts_nested_attributes_for :passengers
 
-  before_save :add_boarding_time
-  before_save :add_gate
+  before_save :add_boarding_time, :add_gate, :add_seat
 
   private
 
@@ -17,5 +16,9 @@ class Booking < ApplicationRecord
 
     def add_gate
       self.gate = "#{[*"A".."F"].sample}#{[*1..48].sample}"
+    end
+
+    def add_seat
+      self.seat = "#{[*1..300].sample}"
     end
 end

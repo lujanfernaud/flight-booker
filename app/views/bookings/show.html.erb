@@ -21,7 +21,7 @@
   </tbody>
 </table>
 
-<% @passengers.each do |passenger| %>
+<% @passengers.each.with_index do |passenger, index| %>
   <table class="table table-stripped">
     <thead>
       <tr>
@@ -37,7 +37,7 @@
         <td><%= passenger.name %></td>
         <td><%= @flight.id %></td>
         <td><%= @booking.gate %></td>
-        <td>21A</td>
+        <td><%= @booking.seat + "#{[*"A".."D"][index]}" %></td>
         <td><%= @booking.boarding_time.strftime("%H:%M") %></td>
       </tr>
     </tbody>
