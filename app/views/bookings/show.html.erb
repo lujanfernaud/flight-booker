@@ -29,16 +29,16 @@
         <th>Flight No</th>
         <th>Gate</th>
         <th>Seat</th>
-        <th>Boading Time</th>
+        <th>Boarding Time</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><%= passenger.name %></td>
         <td><%= @flight.id %></td>
-        <td>11A</td>
+        <td><%= @booking.gate %></td>
         <td>21A</td>
-        <td>18:00</td>
+        <td><%= @booking.boarding_time.strftime("%H:%M") %></td>
       </tr>
     </tbody>
   </table>
