@@ -22,25 +22,27 @@
 </table>
 
 <%= form_for @booking do |f| %>
+  <%= render "error_messages", object: @booking %>
+
   <%= f.hidden_field :flight_id, value: @flight.id %>
 
   <%= f.fields_for :passengers do |p| %>
-    <div class="form-group">
+    <div id="passenger_<%= p.index + 1 %>" class="form-group">
       <h2 class="h4">Passenger <%= p.index + 1 %></h2>
       <div class="form-group">
         <%= p.label :name %>
-        <%= p.text_field :name, class: "form-control" %>
+        <%= p.text_field :name, class: "form-control", required: true %>
       </div>
 
       <div class="form-group">
         <%= p.label :email %>
-        <%= p.email_field :email, class: "form-control" %>
+        <%= p.email_field :email, class: "form-control", required: true %>
       </div>
     </div>
   <% end %>
 
   <div class="form-group">
-    <%= f.submit "Submit Passenger",
+    <%= f.submit "Submit",
       class: "btn btn-primary btn-block btn-lg" %>
   </div>
 <% end %>
