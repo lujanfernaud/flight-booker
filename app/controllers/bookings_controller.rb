@@ -1,10 +1,17 @@
 class BookingsController < ApplicationController
   def new
+    @flight_id = params[:flight_id]
+
+    unless @flight_id
+      flash[:danger] = "You need to select a flight from the list."
+      return redirect_to root_path
+    end
+
     @passengers = params[:passengers].to_i
     @booking    = Booking.new
     @passengers.times { @booking.passengers.build }
 
-    @flight = Flight.find(params[:flight_id])
+    @flight = Flight.find(@flight_id)
     find_airports
   end
 
