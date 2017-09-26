@@ -24,6 +24,10 @@ class Flight < ApplicationRecord
     Time.at(duration * 60).strftime("%H:%M")
   end
 
+  def arrival_time
+    (departure_time + (duration * 60)).strftime("%H:%M")
+  end
+
   private
 
     def self.same_date_for(flight, index)

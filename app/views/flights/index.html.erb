@@ -47,6 +47,7 @@
           <th>Date</th>
           <th>Time</th>
           <th>Duration</th>
+          <th>Arrival</th>
         </tr>
       </thead>
       <tbody>
@@ -62,6 +63,7 @@
             <td><%= flight.departure_date.strftime("%d %B %Y") %></td>
             <td><%= flight.departure_time.strftime("%H:%M") %></td>
             <td><%= flight.duration_readable %></td>
+            <td><%= flight.arrival_time %></td>
           </tr>
         <% end %>
       </tbody>
