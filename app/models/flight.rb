@@ -16,6 +16,10 @@ class Flight < ApplicationRecord
     end.compact
   end
 
+  def number
+    "YWO %03d" % id
+  end
+
   private
 
     def self.same_date_for(flight, index)

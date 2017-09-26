@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= @flight.id %></td>
+      <td><%= @flight.number %></td>
       <td><%= @departure_airport.location_with_code %></td>
       <td><%= @arrival_airport.location_with_code %></td>
       <td><%= @flight.departure_date.strftime("%d %B %Y") %></td>
@@ -35,7 +35,7 @@
     <tbody>
       <tr>
         <td><%= passenger.name %></td>
-        <td><%= @flight.id %></td>
+        <td><%= @flight.number %></td>
         <td><%= @booking.gate %></td>
         <td><%= @booking.seat + "#{[*"A".."D"][index]}" %></td>
         <td><%= @booking.boarding_time.strftime("%H:%M") %></td>
