@@ -57,7 +57,7 @@
               <%= label_tag :flight_id, "Flight #{flight.id}", hidden: true %>
               <%= radio_button_tag :flight_id, flight.id %>
             </td>
-            <td><%= flight.id %></td>
+            <td><%= flight.number %></td>
             <td><%= @departure_airport.location_with_code %></td>
             <td><%= @arrival_airport.location_with_code %></td>
             <td><%= flight.departure_date.strftime("%d %B %Y") %></td>
