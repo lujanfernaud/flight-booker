@@ -32,6 +32,7 @@ class FlightsController < ApplicationController
                     params[:departure_airport],
                     params[:arrival_airport],
                     params[:departure_date])
+            .order("departure_time")
     end
 
     def departure_airport
