@@ -20,6 +20,10 @@ class Flight < ApplicationRecord
     "YWO %03d" % id
   end
 
+  def duration_readable
+    Time.at(duration * 60).strftime("%H:%M")
+  end
+
   private
 
     def self.same_date_for(flight, index)

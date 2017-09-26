@@ -16,7 +16,7 @@
       <td><%= @arrival_airport.location_with_code %></td>
       <td><%= @flight.departure_date.strftime("%d %B %Y") %></td>
       <td><%= @flight.departure_time.strftime("%H:%M") %></td>
-      <td><%= @flight.duration %></td>
+      <td><%= @flight.duration_readable %></td>
     </tr>
   </tbody>
 </table>
