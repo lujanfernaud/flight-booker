@@ -3,7 +3,7 @@ require 'test_helper'
 class SelectFlightsTest < ActionDispatch::IntegrationTest
   def setup
     @flight = flights(:one)
-    @departure_time = @flight.departure_date.strftime("%d %B %Y")
+    @departure_date = @flight.departure_date.strftime("%d %B %Y")
   end
 
   test "valid flight" do
@@ -43,6 +43,6 @@ class SelectFlightsTest < ActionDispatch::IntegrationTest
     def select_valid_data
       select "Tenerife", from: "From"
       select "Osaka",    from: "To"
-      select @departure_time, from: "Departure date"
+      select @departure_date, from: "Departure date"
     end
 end
