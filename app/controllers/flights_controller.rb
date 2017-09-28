@@ -10,7 +10,7 @@ class FlightsController < ApplicationController
     end
 
     if @flights.empty?
-      flash[:danger] = no_available_flights
+      flash.now[:danger] = no_available_flights
     end
   end
 
