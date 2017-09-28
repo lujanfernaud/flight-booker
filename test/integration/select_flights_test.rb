@@ -17,14 +17,14 @@ class SelectFlightsTest < ActionDispatch::IntegrationTest
     assert page.has_content? "Email"
   end
 
-  test "no flight selected" do
+  test "a default flight is selected" do
     visit root_path
 
     select_valid_data
     click_on "Search"
     click_on "Continue"
 
-    assert page.has_css? ".alert-danger"
+    assert page.has_content? "Email"
   end
 
   test "same airport in origin and destination" do
