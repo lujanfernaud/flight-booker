@@ -44,8 +44,8 @@
           <th>To</th>
           <th>Date</th>
           <th>Time</th>
-          <th>Duration</th>
           <th>Arrival</th>
+          <th>Duration</th>
         </tr>
       </thead>
       <tbody>
@@ -60,8 +60,8 @@
             <td><%= flight.arrival_airport.location_with_code %></td>
             <td><%= flight.departure_date.strftime("%d %B %Y") %></td>
             <td><%= flight.departure_time.strftime("%H:%M") %></td>
-            <td><%= flight.duration_readable %></td>
             <td><%= flight.arrival_time %></td>
+            <td><%= flight.duration_readable %></td>
           </tr>
         <% end %>
       </tbody>
