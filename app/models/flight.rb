@@ -1,12 +1,12 @@
 class Flight < ApplicationRecord
-  has_many :bookings
-  has_many :passengers, through: :bookings
-
   belongs_to :departure_airport, class_name: "Airport"
   belongs_to :arrival_airport,   class_name: "Airport"
 
-  validates :departure_airport, :arrival_airport, presence: true
-  validates :departure_date,    :duration,        presence: true
+  has_many   :bookings
+  has_many   :passengers, through: :bookings
+
+  validates  :departure_airport, :arrival_airport, presence: true
+  validates  :departure_date,    :duration,        presence: true
 
   def self.departure_dates
     all.map.with_index do |flight, index|
