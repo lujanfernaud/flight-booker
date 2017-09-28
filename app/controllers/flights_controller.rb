@@ -4,11 +4,6 @@ class FlightsController < ApplicationController
 
     @flights = find_flights
 
-    if @flights
-      @departure_airport = departure_airport
-      @arrival_airport   = arrival_airport
-    end
-
     if @flights.empty?
       flash.now[:danger] = no_available_flights
     end
@@ -35,16 +30,16 @@ class FlightsController < ApplicationController
             .order("departure_time")
     end
 
+    def no_available_flights
+      "We are sorry. There are no available flights from " \
+      "#{departure_airport.location} to #{arrival_airport.location}."
+    end
+
     def departure_airport
       Airport.find(params[:departure_airport])
     end
 
     def arrival_airport
       Airport.find(params[:arrival_airport])
-    end
-
-    def no_available_flights
-      "We are sorry. There are no available flights from " \
-        "#{@departure_airport.location} to #{@arrival_airport.location}."
     end
 end

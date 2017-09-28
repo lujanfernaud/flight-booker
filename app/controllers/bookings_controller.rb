@@ -1,4 +1,9 @@
 class BookingsController < ApplicationController
+  def show
+    @booking = Booking.find(params[:id])
+    find_flight
+  end
+
   def new
     @flight_id = params[:flight_id]
 
@@ -7,27 +12,15 @@ class BookingsController < ApplicationController
       return redirect_to root_path
     end
 
-    @passengers = params[:passengers].to_i
     @booking    = Booking.new
+    @passengers = params[:passengers].to_i
     @passengers.times { @booking.passengers.build }
-
-    @flight = Flight.find(@flight_id)
-    find_airports
-  end
-
-  def show
-    @booking    = Booking.find(params[:id])
-    @passengers = @booking.passengers
-
     find_flight
-    find_airports
   end
 
   def create
     @booking = Booking.new(booking_params)
-
     find_flight
-    find_airports
 
     if @booking.save
       flash[:success] = "You have successfully booked this flight."
@@ -39,17 +32,12 @@ class BookingsController < ApplicationController
 
   private
 
+    def find_flight
+      @flight = @booking.flight || Flight.find(@flight_id)
+    end
+
     def booking_params
       params.require(:booking).permit(:flight_id,
                                       passengers_attributes: [:name, :email])
-    end
-
-    def find_flight
-      @flight = @booking.flight
-    end
-
-    def find_airports
-      @departure_airport = @flight.departure_airport
-      @arrival_airport   = @flight.arrival_airport
     end
 end

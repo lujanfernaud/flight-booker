@@ -33,8 +33,6 @@
 <% if @flights && !@flights.empty? %>
   <%= form_tag new_booking_path, method: :get do %>
 
-    <%= hidden_field_tag :departure_airport_id, @departure_airport.id %>
-    <%= hidden_field_tag :arrival_airport_id, @arrival_airport.id %>
     <%= hidden_field_tag :passengers, params[:passengers] %>
 
     <table class="table table-stripped">
@@ -58,8 +56,8 @@
               <%= radio_button_tag :flight_id, flight.id %>
             </td>
             <td><%= flight.number %></td>
-            <td><%= @departure_airport.location_with_code %></td>
-            <td><%= @arrival_airport.location_with_code %></td>
+            <td><%= flight.departure_airport.location_with_code %></td>
+            <td><%= flight.arrival_airport.location_with_code %></td>
             <td><%= flight.departure_date.strftime("%d %B %Y") %></td>
             <td><%= flight.departure_time.strftime("%H:%M") %></td>
             <td><%= flight.duration_readable %></td>
