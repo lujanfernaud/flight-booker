@@ -10,7 +10,7 @@ class Flight < ApplicationRecord
 
   def self.departure_dates
     all.map.with_index do |flight, index|
-      next if self.same_date_for(flight, index)
+      next if same_date_for(flight, index)
 
       [flight.departure_date.strftime("%d %B %Y"), flight.departure_date]
     end.compact
