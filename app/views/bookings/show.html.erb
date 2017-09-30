@@ -29,18 +29,14 @@
       <tr>
         <th>Passenger Name</th>
         <th>Flight No</th>
-        <th>Gate</th>
         <th>Seat</th>
-        <th>Boarding Time</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><%= passenger.name %></td>
         <td><%= @flight.number %></td>
-        <td><%= @booking.gate %></td>
         <td><%= @booking.seat + "#{[*"A".."D"][index]}" %></td>
-        <td><%= @booking.boarding_time.strftime("%H:%M") %></td>
       </tr>
     </tbody>
   </table>
