@@ -20,6 +20,14 @@ class Flight < ApplicationRecord
     "YWO %03d" % id
   end
 
+  def date_readable
+    departure_date.strftime("%d %B %Y")
+  end
+
+  def time_readable
+    departure_time.strftime("%H:%M")
+  end
+
   def duration_readable
     Time.at(duration * 60).strftime("%H:%M")
   end
