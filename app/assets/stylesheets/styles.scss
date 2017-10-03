@@ -37,8 +37,6 @@ body {
   height: 4rem;
   border: 1px solid $brand-color;
   border-bottom: 0;
-  border-top-right-radius: .25rem;
-  border-top-left-radius: .25rem;
 }
 
 .flight-title {
@@ -50,8 +48,6 @@ body {
 .info-box-content {
   background-color: $white;
   border: 1px solid $gray-500;
-  border-bottom-right-radius: .25rem;
-  border-bottom-left-radius: .25rem;
 }
 
 // Boostrap Modifications
