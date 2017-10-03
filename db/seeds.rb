@@ -51,7 +51,43 @@ end
   )
 end
 
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 2,
+    departure_date: in_a_month + 1.week,
+    departure_time: random_hours(n),
+    duration: 260
+  )
+end
+
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 2,
+    departure_date: in_a_month + 2.weeks,
+    departure_time: random_hours(n),
+    duration: 260
+  )
+end
+
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 2,
+    departure_date: in_a_month + 3.weeks,
+    departure_time: random_hours(n),
+    duration: 260
+  )
+end
+
 # Tenerife - Osaka
+
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 3,
+    departure_date: in_a_month,
+    departure_time: random_hours(n),
+    duration: 960
+  )
+end
 
 4.times do |n|
   tenerife_south.departures.build(
@@ -62,7 +98,43 @@ end
   )
 end
 
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 3,
+    departure_date: in_a_month + 2.weeks,
+    departure_time: random_hours(n),
+    duration: 960
+  )
+end
+
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 3,
+    departure_date: in_a_month + 3.weeks,
+    departure_time: random_hours(n),
+    duration: 960
+  )
+end
+
 # Tenerife - Paro
+
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 4,
+    departure_date: in_a_month,
+    departure_time: random_hours(n),
+    duration: 784
+  )
+end
+
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 4,
+    departure_date: in_a_month + 1.week,
+    departure_time: random_hours(n),
+    duration: 784
+  )
+end
 
 4.times do |n|
   tenerife_south.departures.build(
@@ -73,7 +145,43 @@ end
   )
 end
 
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 4,
+    departure_date: in_a_month + 3.weeks,
+    departure_time: random_hours(n),
+    duration: 784
+  )
+end
+
 # Tenerife - Honolulu
+
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 5,
+    departure_date: in_a_month,
+    departure_time: random_hours(n),
+    duration: 1010
+  )
+end
+
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 5,
+    departure_date: in_a_month + 1.week,
+    departure_time: random_hours(n),
+    duration: 1010
+  )
+end
+
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 5,
+    departure_date: in_a_month + 2.weeks,
+    departure_time: random_hours(n),
+    duration: 1010
+  )
+end
 
 4.times do |n|
   tenerife_south.departures.build(
