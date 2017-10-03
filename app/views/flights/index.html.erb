@@ -3,21 +3,24 @@
     <%= form_tag "/flights", method: "get" do %>
       <div class="form-group">
         <%= label_tag :departure_airport, "From" %>
-        <%= select_tag :departure_airport, options_for_select(Airport.locations),
+        <%= select_tag :departure_airport,
+          options_for_select([["Tenerife", "1"]]),
           include_blank: "Please select...", required: true,
           class: "form-control custom-select" %>
       </div>
 
       <div class="form-group">
         <%= label_tag :arrival_airport, "To" %>
-        <%= select_tag :arrival_airport, options_for_select(Airport.locations),
+        <%= select_tag :arrival_airport,
+          options_for_select(Airport.locations),
           include_blank: "Please select...", required: true,
           class: "form-control custom-select" %>
       </div>
 
       <div class="form-group">
         <%= label_tag :departure_date, "Departure date" %>
-        <%= select_tag :departure_date, options_for_select(Flight.departure_dates),
+        <%= select_tag :departure_date,
+          options_for_select(Flight.departure_dates),
           class: "form-control custom-select" %>
       </div>
 

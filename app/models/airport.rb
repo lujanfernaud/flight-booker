@@ -8,9 +8,11 @@ class Airport < ApplicationRecord
   validates :name, :location, :iata_code, presence: true
 
   def self.locations
-    all.map do |airport|
+    all.map.with_index do |airport, index|
+      next if index.zero? # Skip Tenerife.
+
       [airport.location, airport.id]
-    end
+    end.compact!
   end
 
   def location_with_code

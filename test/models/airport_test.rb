@@ -37,6 +37,6 @@ class AirportTest < ActiveSupport::TestCase
   end
 
   test ".locations" do
-    assert_equal 4, Airport.locations.size
+    assert_equal (Airport.all.size - 1), Airport.locations.size
   end
 end

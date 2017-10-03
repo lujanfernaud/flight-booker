@@ -31,7 +31,7 @@ class SelectFlightsTest < ActionDispatch::IntegrationTest
     visit root_path
 
     select "Tenerife", from: "From"
-    select "Tenerife", from: "To"
+    select "Paro", from: "To"
 
     click_on "Search"
 

@@ -13,7 +13,7 @@ class Flight < ApplicationRecord
       next if same_date_for(flight, index)
 
       [flight.departure_date.strftime("%d %B %Y"), flight.departure_date]
-    end.compact
+    end.uniq.compact
   end
 
   def number
