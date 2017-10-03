@@ -12,7 +12,7 @@ class Airport < ApplicationRecord
       next if index.zero? # Skip Tenerife.
 
       [airport.location, airport.id]
-    end.compact!
+    end.compact
   end
 
   def location_with_code
