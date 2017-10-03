@@ -21,7 +21,7 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
       fill_in "Email", with: @thupten.email
     end
 
-    click_on "Submit"
+    click_on "Book this flight"
   end
 
   test "names are empty" do
@@ -37,7 +37,7 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
       fill_in "Email", with: @thupten.email
     end
 
-    click_on "Submit"
+    click_on "Book this flight"
 
     assert page.has_css? ".alert-danger"
   end
@@ -55,7 +55,7 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
       fill_in "Email", with: ""
     end
 
-    click_on "Submit"
+    click_on "Book this flight"
 
     assert page.has_css? ".alert-danger"
   end
