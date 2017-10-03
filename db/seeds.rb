@@ -84,48 +84,4 @@ end
   )
 end
 
-# Zurich - Tenerife
-
-4.times do |n|
-  tenerife_south.arrivals.build(
-    departure_airport_id: 2,
-    departure_date: in_a_month + 4.weeks,
-    departure_time: random_hours(n),
-    duration: 260
-  )
-end
-
-# Osaka - Tenerife
-
-4.times do |n|
-  tenerife_south.arrivals.build(
-    departure_airport_id: 3,
-    departure_date: in_a_month + 5.weeks,
-    departure_time: random_hours(n),
-    duration: 960
-  )
-end
-
-# Paro - Tenerife
-
-4.times do |n|
-  tenerife_south.arrivals.build(
-    departure_airport_id: 4,
-    departure_date: in_a_month + 6.weeks,
-    departure_time: random_hours(n),
-    duration: 784
-  )
-end
-
-# Honolulu - Tenerife
-
-4.times do |n|
-  tenerife_south.arrivals.build(
-    departure_airport_id: 5,
-    departure_date: in_a_month + 7.weeks,
-    departure_time: random_hours(n),
-    duration: 1010
-  )
-end
-
 tenerife_south.save!
