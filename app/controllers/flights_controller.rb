@@ -32,7 +32,8 @@ class FlightsController < ApplicationController
 
     def no_available_flights
       "We are sorry. There are no available flights from " \
-      "#{departure_airport.location} to #{arrival_airport.location}."
+      "#{departure_airport.location} to #{arrival_airport.location} " \
+      "on that date."
     end
 
     def departure_airport
