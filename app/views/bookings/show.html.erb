@@ -1,43 +1,69 @@
-<table class="table table-stripped">
-  <thead>
-    <tr>
-      <th>Flight No</th>
-      <th>From</th>
-      <th>To</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Arrival</th>
-      <th>Duration</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @flight.number %></td>
-      <td><%= @flight.departure_airport.location_with_code %></td>
-      <td><%= @flight.arrival_airport.location_with_code %></td>
-      <td><%= @flight.date_readable %></td>
-      <td><%= @flight.time_readable %></td>
-      <td><%= @flight.arrival_time %></td>
-      <td><%= @flight.duration_readable %></td>
-    </tr>
-  </tbody>
-</table>
+<div class="info-box mb-4">
 
-<% @booking.passengers.each.with_index do |passenger, index| %>
-  <table class="table table-stripped">
-    <thead>
-      <tr>
-        <th>Passenger Name</th>
-        <th>Flight No</th>
-        <th>Seat</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= passenger.name %></td>
-        <td><%= @flight.number %></td>
-        <td><%= @booking.seat + "#{[*"A".."D"][index]}" %></td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+  <div class="info-box-header">
+    <h2 class="flight-title text-center">
+      <%= @flight.departure_airport.location_with_code %>
+        <span class="arrow">&#8594;</span>
+        <%= @flight.arrival_airport.location_with_code %>
+    </h2>
+  </div>
+
+  <div class="info-box-content">
+    <table class="table mb-0">
+      <thead class="thead-default">
+        <tr>
+          <th>Flight No</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Arrival</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @flight.number %></td>
+          <td><%= @flight.departure_airport.location_with_code %></td>
+          <td><%= @flight.arrival_airport.location_with_code %></td>
+          <td><%= @flight.date_readable %></td>
+          <td><%= @flight.time_readable %></td>
+          <td><%= @flight.arrival_time %></td>
+          <td><%= @flight.duration_readable %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="info-box mb-4">
+
+  <div class="info-box-header">
+    <h2 class="flight-title text-center">
+      <%= "Passenger".pluralize(@booking.passengers.size) %>
+    </h2>
+  </div>
+
+  <div class="info-box-content">
+    <table class="table mb-0">
+      <thead class="thead-default">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Seat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @booking.passengers.each.with_index do |passenger, index| %>
+          <tr>
+            <td><%= passenger.name %></td>
+            <td><%= passenger.email %></td>
+            <td><%= @booking.seat + "#{[*"A".."D"][index]}" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>

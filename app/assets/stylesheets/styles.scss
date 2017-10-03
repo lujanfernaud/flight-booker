@@ -1,0 +1,37 @@
+// Variables
+
+$brand-color: #0062cc;
+
+// Content
+
+body {
+  background-color: $gray-100;
+}
+
+.info-box {
+  display: table;
+  width: 100%;
+  max-width: 100%;
+}
+
+.info-box-header {
+  background-color: $brand-color;
+  height: 4rem;
+  border: 1px solid $brand-color;
+  border-bottom: 0;
+  border-top-right-radius: .25rem;
+  border-top-left-radius: .25rem;
+}
+
+.flight-title {
+  padding-top: .8rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.info-box-content {
+  background-color: $white;
+  border: 1px solid $gray-500;
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+}
