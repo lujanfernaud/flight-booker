@@ -10,15 +10,17 @@
 
   <body>
 
+    <div class="container-fluid">
+      <%= render "header" %>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class="col">
 
-          <h1>Flights</h1>
-
           <% flash.each do |message_type, message| %>
             <%= content_tag :div, message,
-              class: "alert alert-#{message_type} text-center mt-3" %>
+              class: "alert alert-#{message_type} text-center mt-1 mb-4" %>
           <% end %>
 
           <%= yield %>

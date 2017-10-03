@@ -8,6 +8,24 @@ body {
   background-color: $gray-100;
 }
 
+.headerbar {
+  padding-top: .5rem;
+  height: 5rem;
+  background-color: $brand-color;
+}
+
+.brand-name {
+  color: $white;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.brand-name:hover,
+.brand-name:focus {
+  color: $white;
+  text-decoration: none;
+}
+
 .info-box {
   display: table;
   width: 100%;
@@ -34,4 +52,11 @@ body {
   border: 1px solid $gray-500;
   border-bottom-right-radius: .25rem;
   border-bottom-left-radius: .25rem;
+}
+
+// Boostrap Modifications
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
 }
