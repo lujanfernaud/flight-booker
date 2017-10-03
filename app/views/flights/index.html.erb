@@ -1,74 +1,82 @@
-<%= form_tag "/flights", method: "get" do %>
-  <div class="form-group">
-    <%= label_tag :departure_airport, "From" %>
-    <%= select_tag :departure_airport, options_for_select(Airport.locations),
-      include_blank: "Please select...", required: true,
-      class: "form-control custom-select" %>
-  </div>
+<div class="info-box mb-4">
+  <div class="info-box-content rounded p-3">
+    <%= form_tag "/flights", method: "get" do %>
+      <div class="form-group">
+        <%= label_tag :departure_airport, "From" %>
+        <%= select_tag :departure_airport, options_for_select(Airport.locations),
+          include_blank: "Please select...", required: true,
+          class: "form-control custom-select" %>
+      </div>
 
-  <div class="form-group">
-    <%= label_tag :arrival_airport, "To" %>
-    <%= select_tag :arrival_airport, options_for_select(Airport.locations),
-      include_blank: "Please select...", required: true,
-      class: "form-control custom-select" %>
-  </div>
+      <div class="form-group">
+        <%= label_tag :arrival_airport, "To" %>
+        <%= select_tag :arrival_airport, options_for_select(Airport.locations),
+          include_blank: "Please select...", required: true,
+          class: "form-control custom-select" %>
+      </div>
 
-  <div class="form-group">
-    <%= label_tag :departure_date, "Departure date" %>
-    <%= select_tag :departure_date, options_for_select(Flight.departure_dates),
-      class: "form-control custom-select" %>
-  </div>
+      <div class="form-group">
+        <%= label_tag :departure_date, "Departure date" %>
+        <%= select_tag :departure_date, options_for_select(Flight.departure_dates),
+          class: "form-control custom-select" %>
+      </div>
 
-  <div class="form-group">
-    <%= label_tag :passengers, "Passengers" %>
-    <%= select_tag :passengers, options_for_select([1, 2, 3, 4]),
-      class: "form-control custom-select" %>
-  </div>
+      <div class="form-group">
+        <%= label_tag :passengers, "Passengers" %>
+        <%= select_tag :passengers, options_for_select([1, 2, 3, 4]),
+          class: "form-control custom-select" %>
+      </div>
 
-  <div class="form-group mt-4">
-    <%= submit_tag "Search", class: "btn btn-primary btn-lg btn-block" %>
+      <div class="form-group mt-4 mb-1">
+        <%= submit_tag "Search", class: "btn btn-primary btn-lg btn-block" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
 <% if @flights && !@flights.empty? %>
-  <%= form_tag new_booking_path, method: :get do %>
+<div class="info-box">
+  <div class="info-box-content rounded p-3">
+    <%= form_tag new_booking_path, method: :get do %>
 
-    <%= hidden_field_tag :passengers, params[:passengers] %>
+      <%= hidden_field_tag :passengers, params[:passengers] %>
 
-    <table class="table table-stripped">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Flight No</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Arrival</th>
-          <th>Duration</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @flights.each do |flight| %>
+      <table class="table table-stripped mt-1">
+        <thead class="thead-default">
           <tr>
-            <td>
-              <%= label_tag :flight_id, "Flight #{flight.id}", hidden: true %>
-              <%= radio_button_tag :flight_id, flight.id, required: true %>
-            </td>
-            <td><%= flight.number %></td>
-            <td><%= flight.departure_airport.location_with_code %></td>
-            <td><%= flight.arrival_airport.location_with_code %></td>
-            <td><%= flight.date_readable %></td>
-            <td><%= flight.time_readable %></td>
-            <td><%= flight.arrival_time %></td>
-            <td><%= flight.duration_readable %></td>
+            <th></th>
+            <th>Flight No</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Arrival</th>
+            <th>Duration</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @flights.each do |flight| %>
+            <tr>
+              <td>
+                <%= label_tag :flight_id, "Flight #{flight.id}", hidden: true %>
+                <%= radio_button_tag :flight_id, flight.id, required: true %>
+              </td>
+              <td><%= flight.number %></td>
+              <td><%= flight.departure_airport.location_with_code %></td>
+              <td><%= flight.arrival_airport.location_with_code %></td>
+              <td><%= flight.date_readable %></td>
+              <td><%= flight.time_readable %></td>
+              <td><%= flight.arrival_time %></td>
+              <td><%= flight.duration_readable %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-    <div class="form-group mt-4">
-      <%= submit_tag "Continue", class: "btn btn-primary btn-lg btn-block" %>
-    </div>
-  <% end %>
+      <div class="form-group mt-4 mb-1">
+        <%= submit_tag "Continue", class: "btn btn-primary btn-lg btn-block" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 <% end %>
