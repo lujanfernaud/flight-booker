@@ -12,13 +12,15 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
     select_flight
 
     within "#passenger_1" do
-      fill_in "Name", with: @tenzin.name
-      fill_in "Email", with: @tenzin.email
+      fill_in "First name", with: @tenzin.first_name
+      fill_in "Last name",  with: @tenzin.last_name
+      fill_in "Email",      with: @tenzin.email
     end
 
     within "#passenger_2" do
-      fill_in "Name", with: @thupten.name
-      fill_in "Email", with: @thupten.email
+      fill_in "First name", with: @thupten.first_name
+      fill_in "Last name",  with: @thupten.last_name
+      fill_in "Email",      with: @thupten.email
     end
 
     click_on "Book this flight"
@@ -28,13 +30,35 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
     select_flight
 
     within "#passenger_1" do
-      fill_in "Name", with: ""
-      fill_in "Email", with: @tenzin.email
+      fill_in "First name", with: ""
+      fill_in "Last name",  with: @tenzin.last_name
+      fill_in "Email",      with: @tenzin.email
     end
 
     within "#passenger_2" do
-      fill_in "Name", with: ""
-      fill_in "Email", with: @thupten.email
+      fill_in "First name", with: ""
+      fill_in "Last name",  with: @thupten.last_name
+      fill_in "Email",      with: @thupten.email
+    end
+
+    click_on "Book this flight"
+
+    assert page.has_css? ".alert-danger"
+  end
+
+  test "last names are empty" do
+    select_flight
+
+    within "#passenger_1" do
+      fill_in "First name", with: @tenzin.first_name
+      fill_in "Last name",  with: ""
+      fill_in "Email",      with: @tenzin.email
+    end
+
+    within "#passenger_2" do
+      fill_in "First name", with: @thupten.first_name
+      fill_in "Last name",  with: ""
+      fill_in "Email",      with: @thupten.email
     end
 
     click_on "Book this flight"
@@ -46,13 +70,15 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
     select_flight
 
     within "#passenger_1" do
-      fill_in "Name", with: @tenzin.name
-      fill_in "Email", with: ""
+      fill_in "First name", with: @tenzin.first_name
+      fill_in "Last name",  with: @tenzin.last_name
+      fill_in "Email",      with: ""
     end
 
     within "#passenger_2" do
-      fill_in "Name", with: @thupten.name
-      fill_in "Email", with: ""
+      fill_in "First name", with: @thupten.first_name
+      fill_in "Last name",  with: @thupten.last_name
+      fill_in "Email",      with: ""
     end
 
     click_on "Book this flight"

@@ -9,8 +9,13 @@ class PassengerTest < ActiveSupport::TestCase
     assert @passenger.valid?
   end
 
-  test "is invalid without name" do
-    @passenger.name = nil
+  test "is invalid without first name" do
+    @passenger.first_name = nil
+    assert_not @passenger.valid?
+  end
+
+  test "is invalid without last name" do
+    @passenger.last_name = nil
     assert_not @passenger.valid?
   end
 
