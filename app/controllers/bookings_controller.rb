@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
     find_flight
 
     if @booking.save
-      flash[:success] = "Yay! You have successfully booked this flight!"
+      flash[:success] = "Congratulations! You have successfully booked this flight!"
       redirect_to booking_path(@booking)
     else
       render :new
