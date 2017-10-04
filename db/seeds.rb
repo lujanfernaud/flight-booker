@@ -37,7 +37,7 @@ def in_a_month
 end
 
 def random_hours(number)
-  Time.parse("#{rand(0..18) + number}:#{rand(0..60)}")
+  Time.parse("#{rand(0..15) + number * 2}:#{rand(0..59)}")
 end
 
 # Tenerife - Zurich
