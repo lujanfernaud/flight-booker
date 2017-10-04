@@ -12,7 +12,7 @@ class FlightsController < ApplicationController
   private
 
     def form_submitted?
-      params[:commit] == "Search"
+      params[:commit] == "Search flights"
     end
 
     def airports_selected?

@@ -10,7 +10,7 @@ class SelectFlightsTest < ActionDispatch::IntegrationTest
     visit root_path
 
     select_valid_data
-    click_on "Search"
+    click_on "Search flights"
     choose id: "flight_id_#{@flight.id}"
     click_on "Continue"
 
@@ -21,7 +21,7 @@ class SelectFlightsTest < ActionDispatch::IntegrationTest
     visit root_path
 
     select_valid_data
-    click_on "Search"
+    click_on "Search flights"
     click_on "Continue"
 
     assert page.has_content? "Email"
@@ -33,7 +33,7 @@ class SelectFlightsTest < ActionDispatch::IntegrationTest
     select "Tenerife", from: "From"
     select "Paro", from: "To"
 
-    click_on "Search"
+    click_on "Search flights"
 
     assert page.has_content? "no available flights"
   end
