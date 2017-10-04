@@ -25,15 +25,15 @@ class Flight < ApplicationRecord
   end
 
   def time_readable
-    departure_time.strftime("%H:%M")
+    departure_time.strftime("%H:%M") + period_of_day_symbol(departure_time)
+  end
+
+  def arrival_time_readable
+    arrival_time.strftime("%H:%M") + period_of_day_symbol(arrival_time)
   end
 
   def duration_readable
     Time.at(duration * 60).strftime("%H:%M")
-  end
-
-  def arrival_time
-    (departure_time + (duration * 60)).strftime("%H:%M")
   end
 
   private
@@ -43,5 +43,21 @@ class Flight < ApplicationRecord
 
       flight.departure_date.strftime("%d %B %Y") ==
         previous_flight.departure_date.strftime("%d %B %Y")
+    end
+
+    def period_of_day_symbol(time)
+      time.hour.in?(7..19) ? sun_symbol : moon_symbol
+    end
+
+    def sun_symbol
+      " " + CGI.unescapeHTML("&#9728;")
+    end
+
+    def moon_symbol
+      CGI.unescapeHTML("&#9789;")
+    end
+
+    def arrival_time
+      departure_time + (duration * 60)
     end
 end
