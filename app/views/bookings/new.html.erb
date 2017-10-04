@@ -45,16 +45,22 @@
 
         <div id="passenger_<%= p.index + 1 %>" class="form-group mb-1">
           <h2 class="h4 mb-3">Passenger <%= p.index + 1 %></h2>
-          <div class="form-group">
-            <%= p.label :first_name %>
-            <%= p.text_field :first_name, class: "form-control",
-              autofocus: true, required: true %>
-          </div>
 
-          <div class="form-group">
-            <%= p.label :last_name %>
-            <%= p.text_field :last_name, class: "form-control",
-              autofocus: true, required: true %>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <%= p.label :first_name %>
+                <%= p.text_field :first_name, class: "form-control",
+                  autofocus: true, required: true %>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <%= p.label :last_name %>
+                <%= p.text_field :last_name, class: "form-control",
+                  autofocus: true, required: true %>
+              </div>
+            </div>
           </div>
 
           <div class="form-group mb-0">
