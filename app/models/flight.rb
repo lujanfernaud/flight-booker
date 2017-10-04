@@ -33,7 +33,7 @@ class Flight < ApplicationRecord
   end
 
   def duration_readable
-    Time.at(duration * 60).strftime("%H:%M")
+    Time.at(duration * 60).strftime("%H:%M") + " hrs"
   end
 
   private
