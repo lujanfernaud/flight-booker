@@ -36,6 +36,14 @@ class Flight < ApplicationRecord
     Time.at(duration * 60).strftime("%H:%M") + " hrs"
   end
 
+  def mid_latitude
+    (departure_airport.latitude + arrival_airport.latitude) / 2
+  end
+
+  def mid_longitude
+    (departure_airport.longitude + arrival_airport.longitude) / 2
+  end
+
   private
 
     def self.same_date_for(flight, index)

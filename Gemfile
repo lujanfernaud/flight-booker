@@ -15,12 +15,16 @@ gem 'uglifier',                        '>= 1.3.0'
 gem 'coffee-rails',                    '~> 4.2'
 gem 'turbolinks',                      '~> 5'
 gem 'jbuilder',                        '~> 2.5'
+gem 'figaro'  ,                        '~> 1.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt',                        '~> 3.1.7'
 
 # Bootstrap.
 gem 'bootstrap',                       '~> 4.0.0.beta'
 gem 'jquery-rails',                    '4.3.1'
+
+# Map.
+gem "leaflet-rails",                   '~> 1.2'
 
 group :development, :test do
   gem 'faker'

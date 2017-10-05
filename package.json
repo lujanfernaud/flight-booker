@@ -1,5 +1,7 @@
 {
   "name": "flight-booker",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "arc": "^0.1.0"
+  }
 }

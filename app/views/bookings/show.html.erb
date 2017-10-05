@@ -33,8 +33,29 @@
         </tr>
       </tbody>
     </table>
-  </div>
 
+    <div id="map"></div>
+    <script>
+      var map = L.map('map', { zoomControl: false });
+      map.setView([<%= @flight.mid_latitude %>,
+                   <%= @flight.mid_longitude %>],
+                   <%= map_zoom(@flight) %>);
+
+      L.tileLayer('<%= Leaflet.tile_layer %>', {
+                attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map);
+
+      // Start and end points, in x = longitude, y = latitude values
+      var start = { x: <%= @flight.departure_airport.longitude %>,
+                    y: <%= @flight.departure_airport.latitude %> };
+      var end = { x: <%= @flight.arrival_airport.longitude %>,
+                  y: <%= @flight.arrival_airport.latitude %> };
+      var generator = new arc.GreatCircle(start, end);
+      var line = generator.Arc(500, { offset: 10 });
+      L.geoJson(line.json()).addTo(map);
+    </script>
+
+  </div>
 </div>
 
 <div class="info-box mb-4">

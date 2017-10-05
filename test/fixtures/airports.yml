@@ -5,21 +5,29 @@ one:
   name: Tenerife South Airport (Reina Sofia)
   location: Tenerife
   iata_code: TFS
+  latitude: 28.045
+  longitude: -16.5752777778
 
 two:
   id: 2
   name: Kansai International Airport
   location: Osaka
   iata_code: KIX
+  latitude: 34.4341666667
+  longitude: 135.232777778
 
 three:
   id: 3
   name: Paro Airport
   location: Paro
   iata_code: PBH
+  latitude: 27.4088194
+  longitude: 89.4205806
 
 four:
   id: 4
   name: Honolulu International Airport
   location: Honolulu
   iata_code: HNL
+  latitude: 21.3258333333
+  longitude: -157.9216666667
