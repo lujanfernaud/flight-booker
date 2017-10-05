@@ -44,7 +44,9 @@
       <div class="info-box-content rounded p-3">
 
         <div id="passenger_<%= p.index + 1 %>" class="form-group mb-1">
-          <h2 class="h4 mb-3">Passenger <%= p.index + 1 %></h2>
+          <h2 class="h4 mb-3">
+            Passenger <%= p.index + 1 if @passengers > 1 %>
+          </h2>
 
           <div class="row">
             <div class="col">
