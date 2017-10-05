@@ -1,5 +1,12 @@
 <div class="info-box mb-4">
-  <div class="info-box-content rounded p-3">
+
+  <div class="info-box-header rounded-top">
+    <h2 class="flight-title text-center">
+      Flights
+    </h2>
+  </div>
+
+  <div class="info-box-content rounded-bottom p-3">
     <%= form_tag "/flights", method: "get" do %>
 
       <div class="row">
