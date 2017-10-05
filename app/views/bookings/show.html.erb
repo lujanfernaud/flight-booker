@@ -45,6 +45,16 @@
                 attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
 
+      // Disable drag and zoom handlers.
+      map.dragging.disable();
+      map.touchZoom.disable();
+      map.doubleClickZoom.disable();
+      map.scrollWheelZoom.disable();
+      map.keyboard.disable();
+
+      // Disable tap handler, if present.
+      if (map.tap) map.tap.disable();
+
       // Start and end points, in x = longitude, y = latitude values
       var start = { x: <%= @flight.departure_airport.longitude %>,
                     y: <%= @flight.departure_airport.latitude %> };
