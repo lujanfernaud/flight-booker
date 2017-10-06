@@ -30,7 +30,7 @@ class SelectFlightsTest < ActionDispatch::IntegrationTest
   test "same airport in origin and destination" do
     visit root_path
 
-    select "Tenerife", from: "From"
+    select "Tenerife", from: "Fly from"
     select "Paro", from: "To"
 
     click_on "Search flights"
@@ -41,7 +41,7 @@ class SelectFlightsTest < ActionDispatch::IntegrationTest
   private
 
     def select_valid_data
-      select "Tenerife", from: "From"
+      select "Tenerife", from: "Fly from"
       select "Osaka",    from: "To"
       select @departure_date, from: "Departure date"
     end

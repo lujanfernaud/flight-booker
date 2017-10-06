@@ -91,7 +91,7 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
    def select_flight
     visit root_url
 
-    select "Tenerife", from: "From"
+    select "Tenerife", from: "Fly from"
     select "Osaka",    from: "To"
     select @departure_date, from: "Departure date"
     select "2", from: "Passengers"
