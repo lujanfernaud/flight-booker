@@ -39,36 +39,36 @@
 
   <%= f.hidden_field :flight_id, value: @flight.id %>
 
-  <%= f.fields_for :passengers do |p| %>
+  <%= f.fields_for :passengers do |passenger| %>
     <div class="info-box mb-4">
       <div class="info-box-content rounded p-3">
 
-        <div id="passenger_<%= p.index + 1 %>" class="form-group mb-1">
+        <div id="passenger_<%= passenger.index + 1 %>" class="form-group mb-1">
           <h2 class="h4 mb-3">
-            Passenger <%= p.index + 1 if @passengers > 1 %>
+            Passenger <%= passenger.index + 1 if several?(@passengers) %>
           </h2>
 
           <div class="row">
             <div class="col">
               <div class="form-group">
-                <%= p.label :first_name %>
-                <%= p.text_field :first_name, class: "form-control",
+                <%= passenger.label :first_name %>
+                <%= passenger.text_field :first_name, class: "form-control",
                   autofocus: true, required: true %>
               </div>
             </div>
             <div class="col">
               <div class="form-group">
-                <%= p.label :last_name %>
-                <%= p.text_field :last_name, class: "form-control",
+                <%= passenger.label :last_name %>
+                <%= passenger.text_field :last_name, class: "form-control",
                   autofocus: true, required: true %>
               </div>
             </div>
           </div>
 
           <div class="form-group mb-0">
-            <%= p.label :email,
+            <%= passenger.label :email,
               "Email (do not use your real email here!)" %>
-            <%= p.email_field :email, class: "form-control", required: true %>
+            <%= passenger.email_field :email, class: "form-control", required: true %>
           </div>
         </div>
 
