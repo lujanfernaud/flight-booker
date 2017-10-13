@@ -1,0 +1,59 @@
+<p><%= @passenger.first_name %>,</p>
+<p>Thank you for booking this flight with YAWO!</p>
+
+<p>Here are your booking details.</p>
+
+<p>
+  <strong>Flight number:</strong><br>
+  <%= @flight.number %>
+</p>
+
+<p>
+  <strong>From:</strong><br>
+  <%= @flight.departure_airport.location_with_code %>
+</p>
+
+<p>
+  <strong>To:</strong><br>
+  <%= @flight.arrival_airport.location_with_code %>
+</p>
+
+<p>
+  <strong>Departure date:</strong><br>
+  <%= @flight.date_readable %>
+</p>
+
+<p>
+  <strong>Departure time:</strong><br>
+  <%= @flight.time_readable %>
+</p>
+
+<p>
+  <strong>Arrival time:</strong><br>
+  <%= @flight.arrival_time_readable %>
+</p>
+
+<p>
+  <strong>Flight duration:</strong><br>
+  <%= @flight.duration_readable %>
+</p>
+
+<% @booking.passengers.each.with_index do |passenger, index| %>
+  <p>
+    <strong>Passenger <%= index + 1 %>:</strong><br>
+    <%= passenger.full_name %>
+  </p>
+
+  <p>
+    <strong>Seat:</strong><br>
+    <%= @booking.seat + "#{[*"A".."D"][index]}" %>
+  </p>
+<% end %>
+
+<p>
+  To see your booking go to:<br>
+  <%= link_to booking_url(@booking), booking_url(@booking) %>
+</p>
+
+<p>We hope you enjoy your flight!</p>
+<p>The YAWO team</p>

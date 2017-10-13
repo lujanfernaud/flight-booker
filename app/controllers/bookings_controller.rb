@@ -23,7 +23,9 @@ class BookingsController < ApplicationController
     find_flight
 
     if @booking.save
-      flash[:success] = "Congratulations! You have successfully booked this flight!"
+      flash[:success] = "Congratulations! " \
+                        "You have successfully booked this flight!"
+      send_new_booking_email
       redirect_to booking_path(@booking)
     else
       render :new
@@ -41,5 +43,11 @@ class BookingsController < ApplicationController
                                       passengers_attributes: [:first_name,
                                                               :last_name,
                                                               :email])
+    end
+
+    def send_new_booking_email
+      @booking.passengers.each do |passenger|
+        PassengerMailer.booking_details(passenger).deliver
+      end
     end
 end

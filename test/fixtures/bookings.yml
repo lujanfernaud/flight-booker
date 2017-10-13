@@ -2,6 +2,8 @@
 
 one:
   flight: one
+  seat: nil
 
 two:
   flight: two
+  seat: nil

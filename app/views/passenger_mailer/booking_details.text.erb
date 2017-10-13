@@ -1,0 +1,41 @@
+<%= @passenger.first_name %>,
+
+Thank you for booking this flight with YAWO!
+
+Here are your booking details.
+
+Flight number:
+<%= @flight.number %>
+
+From:
+<%= @flight.departure_airport.location_with_code %>
+
+To:
+<%= @flight.arrival_airport.location_with_code %>
+
+Departure date:
+<%= @flight.date_readable %>
+
+Departure time:
+<%= @flight.time_readable %>
+
+Arrival time:
+<%= @flight.arrival_time_readable %>
+
+Flight duration:
+<%= @flight.duration_readable %>
+
+<% @booking.passengers.each.with_index do |passenger, index| %>
+Passenger <%= index + 1 %>:
+<%= passenger.full_name %>
+
+Seat:
+<%= @booking.seat + "#{[*"A".."D"][index]}" %>
+<% end %>
+
+To see your booking go to:
+<%= booking_url(@booking) %>
+
+We hope you enjoy your flight!
+
+The YAWO team

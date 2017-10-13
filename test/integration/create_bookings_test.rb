@@ -24,6 +24,9 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
     end
 
     click_on "Book this flight"
+
+    assert page.has_css? ".alert-success"
+    assert_email_sent
   end
 
   test "names are empty" do
@@ -44,6 +47,7 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
     click_on "Book this flight"
 
     assert page.has_css? ".alert-danger"
+    assert_email_not_sent
   end
 
   test "last names are empty" do
@@ -64,6 +68,7 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
     click_on "Book this flight"
 
     assert page.has_css? ".alert-danger"
+    assert_email_not_sent
   end
 
   test "emails are empty" do
@@ -84,22 +89,34 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
     click_on "Book this flight"
 
     assert page.has_css? ".alert-danger"
+    assert_email_not_sent
   end
 
   private
 
    def select_flight
-    visit root_url
+     visit root_url
 
-    select "Tenerife", from: "Fly from"
-    select "Osaka",    from: "To"
-    select @departure_date, from: "Departure date"
-    select "2", from: "Passengers"
+     select "Tenerife", from: "Fly from"
+     select "Osaka",    from: "To"
+     select @departure_date, from: "Departure date"
+     select "2", from: "Passengers"
 
-    click_on "Search"
+     click_on "Search"
 
-    choose id: "flight_id_#{@flight.id}"
+     choose id: "flight_id_#{@flight.id}"
 
-    click_on "Continue"
+     click_on "Continue"
+   end
+
+   def assert_email_sent
+     mail = ActionMailer::Base.deliveries.last
+
+     assert_match @thupten.email, mail["to"].to_s
+     assert_match "Your booking details", mail.subject
+   end
+
+   def assert_email_not_sent
+     assert_equal [], ActionMailer::Base.deliveries
    end
 end
