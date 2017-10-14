@@ -89,7 +89,7 @@
         <% @booking.passengers.each.with_index do |passenger, index| %>
           <tr>
             <td><%= passenger.full_name %></td>
-            <td><%= passenger.email %></td>
+            <td><%= passenger.email_hidden %></td>
             <td><%= @booking.seat + "#{[*"A".."D"][index]}" %></td>
           </tr>
         <% end %>
