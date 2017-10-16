@@ -25,7 +25,7 @@ class BookingDecorator < ApplicationDecorator
 
   # Adjusts the zoom of the map depending on the duration of the flight.
   def map_zoom(flight)
-    case duration_in_hours(flight)
+    case flight.duration_in_hours
     when  0..1  then 8
     when  1..2  then 5
     when  2..10 then 4
@@ -38,9 +38,5 @@ class BookingDecorator < ApplicationDecorator
 
     def several_passengers?
       passengers.size > 1
-    end
-
-    def duration_in_hours(flight)
-      flight.duration / 60
     end
 end

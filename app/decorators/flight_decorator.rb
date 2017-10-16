@@ -21,6 +21,10 @@ class FlightDecorator < ApplicationDecorator
     Time.at(duration * 60).strftime("%H:%M") + " hrs"
   end
 
+  def duration_in_hours
+    duration / 60
+  end
+
   def mid_latitude
     (departure_airport.latitude + arrival_airport.latitude) / 2
   end
