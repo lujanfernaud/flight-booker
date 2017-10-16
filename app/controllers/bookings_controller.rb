@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def show
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:id]).decorate
     find_flight
   end
 
@@ -12,14 +12,14 @@ class BookingsController < ApplicationController
       return redirect_to root_path
     end
 
-    @booking    = Booking.new
+    @booking    = Booking.new.decorate
     @passengers = params[:passengers].to_i
     @passengers.times { @booking.passengers.build }
     find_flight
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new(booking_params).decorate
     find_flight
 
     if @booking.save
@@ -35,7 +35,8 @@ class BookingsController < ApplicationController
   private
 
     def find_flight
-      @flight = @booking.flight || Flight.find(@flight_id)
+      flight  = @booking.flight || Flight.find(@flight_id)
+      @flight = flight.decorate
     end
 
     def booking_params

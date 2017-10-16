@@ -39,7 +39,7 @@
       var map = L.map('map', { zoomControl: false });
       map.setView([<%= @flight.mid_latitude %>,
                    <%= @flight.mid_longitude %>],
-                   <%= map_zoom(@flight) %>);
+                   <%= @booking.map_zoom(@flight) %>);
 
       L.tileLayer('<%= Leaflet.tile_layer %>', {
                 attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',

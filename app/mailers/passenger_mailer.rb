@@ -4,7 +4,7 @@ class PassengerMailer < ApplicationMailer
   def booking_details(passenger)
     @passenger = passenger
     @booking   = passenger.bookings.last
-    @flight    = @booking.flight
+    @flight    = @booking.flight.decorate
     @url       = "https://yawo.herokuapp.com"
 
     mail(to: "#{@passenger.full_name} <#{@passenger.email}>",

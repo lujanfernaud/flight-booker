@@ -6,7 +6,7 @@ class PassengerMailerTest < ActionMailer::TestCase
   def setup
     @passenger = passengers(:one)
     @booking   = @passenger.bookings.last
-    @flight    = @booking.flight
+    @flight    = @booking.flight.decorate
     @email     = PassengerMailer.booking_details(@passenger)
   end
 

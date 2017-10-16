@@ -2,7 +2,7 @@ class FlightsController < ApplicationController
   def index
     return unless form_submitted? && airports_selected?
 
-    @flights = find_flights
+    @flights = find_flights.decorate
 
     if @flights.empty?
       flash.now[:danger] = no_available_flights

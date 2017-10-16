@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CreateBookingsTest < ActionDispatch::IntegrationTest
   def setup
-    @flight = flights(:one)
+    @flight = flights(:one).decorate
     @departure_date = @flight.date_readable
     @tenzin  = passengers(:one)
     @thupten = passengers(:two)
