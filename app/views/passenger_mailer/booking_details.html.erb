@@ -40,7 +40,9 @@
 
 <% @booking.passengers.each.with_index do |passenger, index| %>
   <p>
-    <strong>Passenger <%= index + 1 %>:</strong><br>
+    <strong>
+      Passenger<%= " #{index + 1}" if @booking.passengers.count > 1 %>:
+    </strong><br>
     <%= passenger.full_name %>
   </p>
 

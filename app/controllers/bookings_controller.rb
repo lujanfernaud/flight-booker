@@ -46,8 +46,7 @@ class BookingsController < ApplicationController
     end
 
     def send_new_booking_email
-      @booking.passengers.each do |passenger|
-        PassengerMailer.booking_details(passenger).deliver
-      end
+      passenger = @booking.passengers[0]
+      PassengerMailer.booking_details(passenger).deliver
     end
 end

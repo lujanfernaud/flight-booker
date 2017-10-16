@@ -12,12 +12,18 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
     select_flight
 
     within "#passenger_1" do
+      assert page.has_content? booking_owner
+      assert page.has_content? additional_email_label
+
       fill_in "First name", with: @tenzin.first_name
       fill_in "Last name",  with: @tenzin.last_name
       fill_in "Email",      with: @tenzin.email
     end
 
     within "#passenger_2" do
+      assert_not page.has_content? booking_owner
+      assert_not page.has_content? additional_email_label
+
       fill_in "First name", with: @thupten.first_name
       fill_in "Last name",  with: @thupten.last_name
       fill_in "Email",      with: @thupten.email
@@ -109,10 +115,18 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
      click_on "Continue"
    end
 
+   def booking_owner
+    "(booking owner)"
+   end
+
+   def additional_email_label
+    "(use a valid email to receive the booking details)"
+   end
+
    def assert_email_sent
      mail = ActionMailer::Base.deliveries.last
 
-     assert_match @thupten.email, mail["to"].to_s
+     assert_match @tenzin.email, mail["to"].to_s
      assert_match "Your booking details", mail.subject
    end
 

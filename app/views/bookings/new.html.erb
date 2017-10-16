@@ -45,7 +45,7 @@
 
         <div id="passenger_<%= passenger.index + 1 %>" class="form-group mb-1">
           <h2 class="h4 mb-3">
-            Passenger <%= passenger.index + 1 if several?(@passengers) %>
+            Passenger <%= additional_info_for(passenger) if several?(@passengers) %>
           </h2>
 
           <div class="row">
@@ -66,8 +66,7 @@
           </div>
 
           <div class="form-group mb-0">
-            <%= passenger.label :email,
-              "Email (use a valid email to receive the booking details)" %>
+            <%= passenger.label :email, email_label_for(passenger) %>
             <%= passenger.email_field :email, class: "form-control", required: true %>
           </div>
         </div>

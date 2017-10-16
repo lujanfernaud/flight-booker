@@ -26,13 +26,13 @@ Flight duration:
 <%= @flight.duration_readable %>
 
 <% @booking.passengers.each.with_index do |passenger, index| %>
-Passenger <%= index + 1 %>:
+Passenger<%= " #{index + 1}" if @booking.passengers.count > 1 %>:
 <%= passenger.full_name %>
 
 Seat:
 <%= @booking.seat + "#{[*"A".."D"][index]}" %>
-<% end %>
 
+<% end %>
 To see your booking go to:
 <%= booking_url(@booking) %>
 
