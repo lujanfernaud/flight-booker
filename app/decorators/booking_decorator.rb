@@ -2,6 +2,8 @@ class BookingDecorator < ApplicationDecorator
   delegate_all
 
   def additional_info_for(passenger)
+    return unless several_passengers?
+
     passenger_number = passenger.index + 1
 
     if passenger_number == 1
@@ -9,10 +11,6 @@ class BookingDecorator < ApplicationDecorator
     else
       passenger_number
     end
-  end
-
-  def several?(passengers)
-    passengers && passengers > 1
   end
 
   def email_label_for(passenger)
@@ -37,6 +35,10 @@ class BookingDecorator < ApplicationDecorator
   end
 
   private
+
+    def several_passengers?
+      passengers.size > 1
+    end
 
     def duration_in_hours(flight)
       flight.duration / 60

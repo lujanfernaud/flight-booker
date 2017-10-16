@@ -45,8 +45,7 @@
 
         <div id="passenger_<%= passenger.index + 1 %>" class="form-group mb-1">
           <h2 class="h4 mb-3">
-            Passenger <%= @booking.additional_info_for(passenger) if
-              @booking.several?(@passengers) %>
+            Passenger <%= @booking.additional_info_for(passenger) %>
           </h2>
 
           <div class="row">
