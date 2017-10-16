@@ -19,6 +19,9 @@ gem 'figaro'  ,                        '~> 1.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt',                        '~> 3.1.7'
 
+# Decorators.
+gem 'draper',                          '~> 3.0', '>= 3.0.1'
+
 # Bootstrap.
 gem 'bootstrap',                       '~> 4.0.0.beta'
 gem 'jquery-rails',                    '4.3.1'
