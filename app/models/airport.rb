@@ -11,7 +11,7 @@ class Airport < ApplicationRecord
     all.map.with_index do |airport, index|
       next if index.zero? # Skip Tenerife.
 
-      [airport.location, airport.id]
+      ["#{airport.location}, #{airport.country}", airport.id]
     end.compact.sort
   end
 
