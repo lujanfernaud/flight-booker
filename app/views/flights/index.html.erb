@@ -9,7 +9,7 @@
             <%= select_tag :departure_airport,
               options_for_select([["Tenerife, Spain", "1"]]),
               include_blank: "Please select...", required: true,
-              class: "form-control custom-select" %>
+              class: "form-control custom-select chosen-select" %>
           </div>
         </div>
         <div class="col">
@@ -18,7 +18,7 @@
             <%= select_tag :arrival_airport,
               options_for_select(Airport.locations),
               include_blank: "Please select...", required: true,
-              class: "form-control custom-select" %>
+              class: "form-control custom-select chosen-select" %>
           </div>
         </div>
       </div>
@@ -29,14 +29,14 @@
             <%= label_tag :departure_date, "Departure date" %>
             <%= select_tag :departure_date,
               options_for_select(Flight.departure_dates),
-              class: "form-control custom-select" %>
+              class: "form-control custom-select chosen-select" %>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <%= label_tag :passengers, "Passengers" %>
             <%= select_tag :passengers, options_for_select([1, 2, 3, 4]),
-              class: "form-control custom-select" %>
+              class: "form-control custom-select chosen-select" %>
           </div>
         </div>
       </div>

@@ -5,3 +5,7 @@
 arc@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/arc/-/arc-0.1.0.tgz#00a4132036cfb33869c7f219ef78287a1fa92c75"
+
+chosen-js@^1.8.2:
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/chosen-js/-/chosen-js-1.8.2.tgz#bfd8ed1266ef667fbbc453c7e5b88d4c470e897e"

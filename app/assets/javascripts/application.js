@@ -15,6 +15,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require chosen-js/chosen.jquery
 //= require leaflet
 //= require arc/arc
 //= require_tree .
