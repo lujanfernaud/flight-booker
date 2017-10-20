@@ -88,6 +88,13 @@ Airport.create!(name: "Marseille Provence Airport",
                 latitude: 43.4369444444,
                 longitude: 5.2183333333)
 
+Airport.create!(name: "Canberra International Airport",
+                location: "Canberra",
+                iata_code: "CBR",
+                country: "Australia",
+                latitude: -35.3066666667,
+                longitude: 149.1919444444)
+
 #
 # Flights.
 #
@@ -519,6 +526,44 @@ end
     departure_date: in_a_month + 3.weeks,
     departure_time: random_hours(n),
     duration: 223
+  )
+end
+
+# Tenerife - Canberra
+
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 13,
+    departure_date: in_a_month,
+    departure_time: random_hours(n),
+    duration: 1406
+  )
+end
+
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 13,
+    departure_date: in_a_month + 1.week,
+    departure_time: random_hours(n),
+    duration: 1406
+  )
+end
+
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 13,
+    departure_date: in_a_month + 2.weeks,
+    departure_time: random_hours(n),
+    duration: 1406
+  )
+end
+
+4.times do |n|
+  tenerife_south.departures.build(
+    arrival_airport_id: 13,
+    departure_date: in_a_month + 3.weeks,
+    departure_time: random_hours(n),
+    duration: 1406
   )
 end
 
