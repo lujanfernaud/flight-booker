@@ -50,7 +50,8 @@
 
           <div class="form-group">
             <%= passenger.label :email, @booking.email_label_for(passenger) %>
-            <%= passenger.email_field :email, class: "form-control", required: true %>
+            <%= passenger.email_field :email, class: "form-control",
+              placeholder: "you@example.com", autofocus: true, required: true %>
           </div>
 
           <div class="row">
@@ -58,14 +59,14 @@
               <div class="form-group mb-0">
                 <%= passenger.label :first_name %>
                 <%= passenger.text_field :first_name, class: "form-control",
-                  autofocus: true, required: true %>
+                  placeholder: "Your first name", required: true %>
               </div>
             </div>
             <div class="col">
               <div class="form-group mb-0">
                 <%= passenger.label :last_name %>
                 <%= passenger.text_field :last_name, class: "form-control",
-                  autofocus: true, required: true %>
+                  placeholder: "Your last name", required: true %>
               </div>
             </div>
           </div>
