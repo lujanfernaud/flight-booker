@@ -23,6 +23,36 @@ class BookingDecorator < ApplicationDecorator
     end
   end
 
+  def email_placeholder_for(passenger)
+    passenger_number = passenger.index + 1
+
+    if passenger_number == 1
+      "you@example.com"
+    else
+      "person@example.com"
+    end
+  end
+
+  def first_name_placeholder_for(passenger)
+    passenger_number = passenger.index + 1
+
+    if passenger_number == 1
+      "Your first name"
+    else
+      "Person's first name"
+    end
+  end
+
+  def last_name_placeholder_for(passenger)
+    passenger_number = passenger.index + 1
+
+    if passenger_number == 1
+      "Your last name"
+    else
+      "Person's last name"
+    end
+  end
+
   # Adjusts the zoom of the map depending on the duration of the flight.
   def map_zoom(flight)
     case flight.duration_in_hours
