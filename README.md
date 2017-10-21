@@ -1,5 +1,5 @@
 # Flight Booker
 
-This is a project for [The Odin Project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/building-advanced-forms?ref=lnav).
+A simple flight booker using Rails.
 
 *Work in progress.*
