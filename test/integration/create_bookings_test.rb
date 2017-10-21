@@ -120,7 +120,7 @@ class CreateBookingsTest < ActionDispatch::IntegrationTest
    end
 
    def additional_email_label
-    "(use a valid email to receive the booking details)"
+    "(use a valid email to receive your booking details)"
    end
 
    def assert_email_sent

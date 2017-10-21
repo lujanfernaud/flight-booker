@@ -17,7 +17,7 @@ class BookingDecorator < ApplicationDecorator
     passenger_number = passenger.index + 1
 
     if passenger_number == 1
-      "Email (use a valid email to receive the booking details)"
+      "Email (use a valid email to receive your booking details)"
     else
       "Email"
     end
