@@ -42,8 +42,10 @@
       </div>
 
       <div class="form-group mt-4 mb-1">
-        <%= submit_tag "Search flights",
-          class: "btn btn-primary btn-lg btn-block" %>
+        <%= button_tag "Search flights",
+          class: "btn btn-primary btn-lg btn-block spinner-parent",
+            name: "commit", value: "Search flights",
+            data: { disable_with: "Searching flights... #{render "spinner"}" } %>
       </div>
 
     <% end %>
